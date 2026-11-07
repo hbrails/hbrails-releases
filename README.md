@@ -78,9 +78,10 @@ exigem build. Não é necessário configurar store experimental ou localizar CLI
 candidata. Em Doctor, Manager dev.2 e Core dev.8.14 têm identidades distintas.
 
 Registre a homologação humana por cenário. SMTP externo e HTTPS público da aplicação não foram verificados nesta rodada.
-Docker ARM64 foi validado com a candidata por aquisição local; a prova pelo canal
-oficial será registrada após publicação. Essa prova; validação técnica não
-substitui esse aceite. A aplicação serve HTTP; download HTTPS não comprova
+Docker ARM64 foi validado também após a publicação, com apps novos baixando
+os pacotes oficiais, sem mirror local: storage inicialmente vazio, processo
+10001:10001 e persistência após down/up. A validação técnica não substitui
+a homologação humana. A aplicação serve HTTP; download HTTPS não comprova
 HTTPS do servidor da aplicação.
 
 ## Integridade, seleção e recuperação
