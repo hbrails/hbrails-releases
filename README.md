@@ -7,11 +7,12 @@ bootstrap e checksums. Os fontes internos do framework não fazem parte deste ca
 
 | Versão | Target disponível | Estado |
 |---|---|---|
-| [0.1.0-dev.8.13](https://github.com/hbrails/hbrails-releases/releases/tag/v0.1.0-dev.8.13) | `linux-aarch64` (ARM64/AArch64) | Prerelease para homologação humana; validação técnica concluída nas condições das notas |
+| [0.1.0-dev.8.14](https://github.com/hbrails/hbrails-releases/releases/tag/v0.1.0-dev.8.14) | `linux-aarch64` (ARM64/AArch64) | Prerelease para homologação humana; validação técnica concluída nas condições das notas |
+| [0.1.0-dev.8.13](https://github.com/hbrails/hbrails-releases/releases/tag/v0.1.0-dev.8.13) | `linux-aarch64` | Prerelease anterior preservada |
 | [0.1.0-dev.8.12](https://github.com/hbrails/hbrails-releases/releases/tag/v0.1.0-dev.8.12) | `linux-aarch64` | Prerelease anterior preservada |
 | [0.1.0-dev.8.11](https://github.com/hbrails/hbrails-releases/releases/tag/v0.1.0-dev.8.11) | `linux-x86_64` | Prerelease anterior preservada |
 
-A dev.8.13 **não oferece novos assets x86-64**. Não misture arquiteturas no
+A dev.8.14 **não oferece novos assets x86-64**. Não misture arquiteturas no
 mesmo prefixo. ARM64 não é declarado suporte oficialmente homologado antes da
 revisão e homologação humana deste conjunto. Confira a seção Releases para o
 estado da publicação e os sete assets de cada versão.
@@ -22,7 +23,7 @@ Baixe novamente o script mantido na raiz deste canal:
 
 ```sh
 curl -fsSL https://raw.githubusercontent.com/hbrails/hbrails-releases/main/install.sh -o install-hbrails.sh
-sh ./install-hbrails.sh 0.1.0-dev.8.13
+sh ./install-hbrails.sh 0.1.0-dev.8.14
 export PATH="$HOME/.local/bin:$PATH"
 hash -r
 hbrails --version
@@ -37,11 +38,11 @@ compatível. Uma combinação ausente gera diagnóstico com versão e target;
 não há fallback para outra arquitetura ou versão.
 
 Uma cópia antiga já baixada não se atualiza sozinha: use a URL canônica acima.
-Ela pode evoluir; para reproduzir exatamente a dev.8.13 use o asset versionado:
+Ela pode evoluir; para reproduzir exatamente a dev.8.14 use o asset versionado:
 
 ```sh
-curl -fsSL https://github.com/hbrails/hbrails-releases/releases/download/v0.1.0-dev.8.13/install.sh -o install-hbrails-dev813.sh
-sh ./install-hbrails-dev813.sh 0.1.0-dev.8.13
+curl -fsSL https://github.com/hbrails/hbrails-releases/releases/download/v0.1.0-dev.8.14/install.sh -o install-hbrails-dev814.sh
+sh ./install-hbrails-dev814.sh 0.1.0-dev.8.14
 ```
 
 Requer shell POSIX, uname, curl com HTTPS, sha256sum, od e utilitários comuns.
@@ -62,7 +63,7 @@ Em pasta de trabalho própria e sem destino preexistente:
 ```sh
 hbrails new native_review
 cd native_review
-hbrails version use 0.1.0-dev.8.13
+hbrails version use 0.1.0-dev.8.14
 hbrails info
 hbrails doctor --details
 hbrails build
@@ -74,10 +75,11 @@ Abra `http://127.0.0.1:3103/` no navegador da máquina que executa o servidor.
 Acompanhe `tail -F log/development.log` em outro terminal. O scaffold entrega
 configuração comum explícita em `config/application.prg`; mudanças de PRG
 exigem build. Não é necessário configurar store experimental ou localizar CLI
-candidata. Em Doctor, Manager dev.2 e Core dev.8.13 têm identidades distintas.
+candidata. Em Doctor, Manager dev.2 e Core dev.8.14 têm identidades distintas.
 
-Registre a homologação humana por cenário. SMTP externo, HTTPS público da
-aplicação e Docker não foram verificados nesta rodada; validação técnica não
+Registre a homologação humana por cenário. SMTP externo e HTTPS público da aplicação não foram verificados nesta rodada.
+Docker ARM64 foi validado com a candidata por aquisição local; a prova pelo canal
+oficial será registrada após publicação. Essa prova; validação técnica não
 substitui esse aceite. A aplicação serve HTTP; download HTTPS não comprova
 HTTPS do servidor da aplicação.
 
@@ -90,7 +92,8 @@ e vinculado ao Core exato, adquirido por `hbrails feature add mail` quando usado
 
 `hbrails versions` lista instalações válidas. Dentro de uma aplicação,
 `hbrails version use <versão>` seleciona uma versão compatível já instalada;
-fora de aplicação, altera o default conforme o contrato do Manager. A seleção
+fora de aplicação, instale explicitamente a versão desejada pelo bootstrap para
+selecionar o padrão da conta. A seleção
 não instala versões ausentes nem troca sua arquitetura. Não existe release
 ARM64 anterior homologada para afirmar rollback histórico nesta primeira oferta.
 As provas técnicas de A→B→A usam uma fixture real identificada.
@@ -107,11 +110,11 @@ This is the public binary release channel. Download the **current** root
 The bootstrap selects the native Linux Manager, verifies its checksum and ELF
 architecture, and rejects unavailable version/target combinations clearly.
 
-Version 0.1.0-dev.8.13 provides Linux AArch64 assets as a **prerelease pending
+Version 0.1.0-dev.8.14 provides Linux AArch64 assets as a **prerelease pending
 human homologation**, with Manager 0.1.0-dev.2. Version 0.1.0-dev.8.11 remains
-the previous Linux x86_64 offering. No new x86_64 dev.8.13 assets are claimed.
+the previous Linux x86_64 offering. No new x86_64 dev.8.14 assets are claimed.
 A previously downloaded script does not update itself. System/build prerequisites
-and the unverified SMTP, application HTTPS and Docker scenarios are described
+and the SMTP/application HTTPS limits and Docker validation scope are described
 above and in the release notes. No internal source checkout or experimental
 framework store is required to consume the packages.
 
