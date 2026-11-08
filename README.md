@@ -1,5 +1,18 @@
 # hbRails Releases
 
+> **Core 0.1.0-dev.8.15 — Linux ARM64:** nova prerelease com validação de
+> nomes de `hbrails new` e comentários de inicialização no `app/main.prg`.
+> Manager 0.1.0-dev.2 preservado. Consulte as
+> [notas e assets](https://github.com/hbrails/hbrails-releases/releases/tag/v0.1.0-dev.8.15).
+> O bootstrap da raiz agora usa dev.8.15 como padrão; os registros dev.8.14
+> abaixo são preservados e a seleção explícita dessa versão continua válida.
+>
+> ```sh
+> curl -fsSL https://raw.githubusercontent.com/hbrails/hbrails-releases/main/install.sh -o install-hbrails.sh
+> sh ./install-hbrails.sh 0.1.0-dev.8.15
+> ```
+
+
 Canal público de distribuição do **hbRails**: pacotes binários, Manager,
 bootstrap e checksums. Os fontes internos do framework não fazem parte deste canal.
 
