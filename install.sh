@@ -270,7 +270,7 @@ main()
 {
     # Keep this literal synchronized with package_public.py.
     # The public packager replaces it with the packaged release version.
-    version=${1:-0.1.0-dev.8.15}
+    version=${1:-0.1.0-dev.8.18}
 
     check_platform
     validate_version "$version"
